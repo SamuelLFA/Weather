@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - "27017:27017"
+    networks:
+      - my-network
+
+  api:
+    build: "./server"
+    container_name: open_weather_api
+    restart: unless-stopped
+    env_file: server/.env
+    environment:
+      - PORT=8080
+      - DB_USER=admin
+      - DB_PASSWORD=admin
+      - DB_SERVER=mongo:27017
+    ports:
+      - "8080:8080"
+    networks:
+      - my-network
+    depends_on:
+      - mongo
+
+  web:
+    build: "./web"
+    container_name: open_weather_web
+    restart: always
+    ports:
+      - "8081:80"
+    depends_on:
+      - api
+
+networks:
+  my-network:
+    driver: bridge

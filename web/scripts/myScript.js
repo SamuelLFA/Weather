@@ -1,8 +1,10 @@
+const baseUrl = "http://localhost:8080";
+
 window.onload = (e) => {
     const form = document.querySelector(".inputSearch");
     form.addEventListener("submit", search, true);
 
-    const socket = io.connect("http://localhost:8081");
+    const socket = io.connect(baseUrl);
     socket.on("updateHistory", function () {
         loadHistory();
     });
@@ -18,7 +20,7 @@ async function search(event) {
 async function submitSearch(city) {
     if (city) {
         const weatherInfos = await (
-            await fetch(`http://localhost:8081/currentWeather?city=${city}`)
+            await fetch(`${baseUrl}/currentWeather?city=${city}`)
         ).json();
         setInfos(weatherInfos);
     }
@@ -38,14 +40,14 @@ function setInfos(weatherInfos) {
 
 async function loadHistory() {
     let cityLists = await (
-        await fetch(`http://localhost:8081/history?limit=5&isTop=true`)
+        await fetch(`${baseUrl}/history?limit=5&isTop=true`)
     ).json();
 
     const topSearchs = document.querySelector(".topSearchs");
     loadList(cityLists, topSearchs, "Top Searches");
 
     cityLists = await (
-        await fetch(`http://localhost:8081/history?limit=5`)
+        await fetch(`${baseUrl}/history?limit=5`)
     ).json();
 
     const list = document.querySelector(".recentSearchs");
