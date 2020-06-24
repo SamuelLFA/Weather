@@ -32,6 +32,7 @@ body {
     .container .history
     {
         margin-bottom: 20px;
+        width: 80%;
     }
 }
 
@@ -53,6 +54,9 @@ body {
 {
     .currentWeather .search {
         margin-bottom: 50px;
+    }
+    .currentWeather .search .inputSearch button {
+        font-size: 1rem;
     }
     .currentWeather .info {
         margin-bottom: 50px;

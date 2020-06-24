@@ -5,10 +5,10 @@ const db_password = process.env.DB_PASSWORD;
 const server = process.env.DB_SERVER;
 
 mongoose.connect(`mongodb://${db_user}:${db_password}@${server}/admin`, {
-    connectTimeoutMS: 2000,
-    socketTimeoutMS: 2000,
-    serverSelectionTimeoutMS: 2000,
-    waitQueueTimeoutMS: 2000,
+    connectTimeoutMS: 10000,
+    socketTimeoutMS: 10000,
+    serverSelectionTimeoutMS: 10000,
+    waitQueueTimeoutMS: 10000,
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, returnError);

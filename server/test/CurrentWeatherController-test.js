@@ -20,7 +20,7 @@ describe("Current Weather Controller Test", () => {
         chai.request(app)
             .get("/currentWeather?city=A")
             .end((_, res) => {
-                res.should.have.status(500);
+                res.should.have.status(404);
                 res.body.should.be.a("object");
                 done();
             });

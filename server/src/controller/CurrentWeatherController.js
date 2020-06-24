@@ -44,11 +44,7 @@ async function get(req, res) {
 
         res.json(response);
     } catch (err) {
-        if (err.errors) {
-            res.status(404).json({ errors: err.errors });
-        } else {
-            res.status(500).json({ errors: err.message || err });
-        }
+        setError(err, res);
     }
 }
 
@@ -72,6 +68,21 @@ async function getCity(city) {
         throw new Error(
             `An error occured while trying to find the Searchs: ${err}`
         );
+    }
+}
+
+function setError(err, res) {
+    if (err.response) {
+        const status = err.response.status;
+        if (status) {
+            res.status(status).json({ errors: err.message });
+        }
+    }
+    else if (err.errors) {
+        res.status(404).json({ errors: err.errors });
+    }
+    else {
+        res.status(500).json({ errors: err.message || err });
     }
 }
 
