@@ -1,0 +1,32 @@
+{
+  "name": "open_weather_api",
+  "version": "1.0.0",
+  "description": "An REST API that consumes the public OpenWather API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "debug": "nodemon --inspect src/index.js"
+  },
+  "keywords": [],
+  "author": "Samuel Lima Ferreira de Araujo",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "chai-sorted": "^0.2.0",
+    "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.5.0",
+    "mongoose": "^5.9.20",
+    "socketio": "^1.0.0"
+  }
+}

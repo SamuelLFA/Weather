@@ -1,0 +1,157 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #fff;
+    height: 100vh;
+    background: url('../assets/background.png');
+}
+
+@media only screen and (max-width: 1080px)
+{
+    body {
+        height: 100%;
+    }
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size:1.5rem;
+}
+
+
+@media only screen and (max-width: 1080px)
+{
+    .container {
+        flex-direction: column;
+    }
+
+    .container .currentWeather,
+    .container .history
+    {
+        margin-bottom: 20px;
+    }
+}
+
+
+.currentWeather {
+    background-color: #505050;
+    height: 80%;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 1080px)
+{
+    .currentWeather .search {
+        margin-bottom: 50px;
+    }
+    .currentWeather .info {
+        margin-bottom: 50px;
+    }
+}
+
+.inputSearch {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.inputSearch input {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    padding: .5em .6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.inputSearch button {
+    font-size: 100%;
+    cursor: pointer;
+    padding: .5em 1em;
+    border: transparent;
+    color: #fff;
+    background-color: #0078e7;
+    text-decoration: none;
+    border-radius: 2px;
+}
+
+.inputSearch button:hover {
+    transition: color 0.1s;
+    background-color: rgba(0, 120, 231, 0.6);
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 45%;
+    height: 80%;
+}
+
+.history div {
+    display: flex;
+    flex-direction: column;
+    background-color: #505050;
+    text-align: center;
+    height: 45%;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 1080px)
+{
+    .history div {
+        margin-bottom: 20px;
+    }
+}
+
+.history div h3{
+    margin: 15px 0 0 0;
+}
+
+.history ul {
+    padding: 0;
+}
+
+.history ul li {
+    list-style-type: none;
+    cursor: pointer;
+    transition: color 0.1s;
+    margin-top: 5px;
+}
+
+.history ul li:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.region {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.region div {
+    margin-right: 5px;
+}
+
+.info div {
+    margin-bottom: 5px;
+}
+
+.info div div {
+    color: #4ea9ff;
+}

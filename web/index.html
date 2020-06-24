@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenWeather</title>
+    <link rel="stylesheet" href="styles/style.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="currentWeather">
+            <div class="search">
+                <form class="inputSearch">
+                    <input placeholder="Name" type="text" id="input_city" class="form-input"/>
+                    <button>Search</button>
+                </form>
+            </div>
+            <div class="info">
+                <div class="region">
+                    <div class="city"></div>
+                    <div class="country"></div>
+                </div>
+                <div class="temp">
+                    Temperature<div class="current"></div>
+                </div>
+                <div class="weather">
+                    Humidity<div class="humidity"></div>
+                    Weather<div class="desc"></div>
+                </div>
+            </div>
+            <div class="date_info">
+                <div class="date"></div>
+                <div class="clock">08:30</div>  
+            </div>
+        </div>
+        <div class="history">
+            <div class="topSearchs"></div>
+            <div class="recentSearchs"></div>
+        </div>
+    </div>
+    <script src="libs/socket.io.js"></script>
+    <script src="scripts/myScript.js"></script>
+</body>
+</html>
